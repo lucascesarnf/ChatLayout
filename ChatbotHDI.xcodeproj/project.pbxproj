@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		A1586E9B20DC194E00CCAC1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1586E9A20DC194E00CCAC1A /* AppDelegate.swift */; };
-		A1586E9D20DC194E00CCAC1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1586E9C20DC194E00CCAC1A /* ViewController.swift */; };
-		A1586EA020DC194E00CCAC1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1586E9E20DC194E00CCAC1A /* Main.storyboard */; };
 		A1586EA220DC194F00CCAC1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1586EA120DC194F00CCAC1A /* Assets.xcassets */; };
 		A1586EA520DC194F00CCAC1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1586EA320DC194F00CCAC1A /* LaunchScreen.storyboard */; };
+		A1586EAF20DC19B100CCAC1A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1586EAE20DC19B100CCAC1A /* Home.storyboard */; };
+		A1586EB120DC1B5800CCAC1A /* Chatbot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1586EB020DC1B5800CCAC1A /* Chatbot.storyboard */; };
+		A1586EB620DC308E00CCAC1A /* ChatMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1586EB520DC308E00CCAC1A /* ChatMessageTableViewCell.swift */; };
+		A1586EB820DC317B00CCAC1A /* ChatDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1586EB720DC317B00CCAC1A /* ChatDataModel.swift */; };
+		A1586EBA20DC347800CCAC1A /* ChatbotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1586EB920DC347800CCAC1A /* ChatbotViewController.swift */; };
+		A17FFB8720DD654D00D5F8A8 /* LoaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FFB8620DD654D00D5F8A8 /* LoaderTableViewCell.swift */; };
+		A17FFB8920DD68F800D5F8A8 /* GenericChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FFB8820DD68F800D5F8A8 /* GenericChatTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A1586E9720DC194E00CCAC1A /* ChatbotHDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatbotHDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1586E9A20DC194E00CCAC1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A1586E9C20DC194E00CCAC1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1586E9F20DC194E00CCAC1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1586EA120DC194F00CCAC1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1586EA420DC194F00CCAC1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1586EA620DC194F00CCAC1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1586EAE20DC19B100CCAC1A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A1586EB020DC1B5800CCAC1A /* Chatbot.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatbot.storyboard; sourceTree = "<group>"; };
+		A1586EB520DC308E00CCAC1A /* ChatMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageTableViewCell.swift; sourceTree = "<group>"; };
+		A1586EB720DC317B00CCAC1A /* ChatDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataModel.swift; sourceTree = "<group>"; };
+		A1586EB920DC347800CCAC1A /* ChatbotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotViewController.swift; sourceTree = "<group>"; };
+		A17FFB8620DD654D00D5F8A8 /* LoaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderTableViewCell.swift; sourceTree = "<group>"; };
+		A17FFB8820DD68F800D5F8A8 /* GenericChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericChatTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,59 @@
 		A1586E9920DC194E00CCAC1A /* ChatbotHDI */ = {
 			isa = PBXGroup;
 			children = (
-				A1586E9A20DC194E00CCAC1A /* AppDelegate.swift */,
-				A1586E9C20DC194E00CCAC1A /* ViewController.swift */,
-				A1586E9E20DC194E00CCAC1A /* Main.storyboard */,
-				A1586EA120DC194F00CCAC1A /* Assets.xcassets */,
-				A1586EA320DC194F00CCAC1A /* LaunchScreen.storyboard */,
 				A1586EA620DC194F00CCAC1A /* Info.plist */,
+				A1586EAD20DC199E00CCAC1A /* Aplication */,
+				A1586EAC20DC196E00CCAC1A /* Resources */,
 			);
 			path = ChatbotHDI;
+			sourceTree = "<group>";
+		};
+		A1586EAC20DC196E00CCAC1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1586EA320DC194F00CCAC1A /* LaunchScreen.storyboard */,
+				A1586EA120DC194F00CCAC1A /* Assets.xcassets */,
+				A1586E9A20DC194E00CCAC1A /* AppDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A1586EAD20DC199E00CCAC1A /* Aplication */ = {
+			isa = PBXGroup;
+			children = (
+				A1586EBC20DC34E900CCAC1A /* Home */,
+				A1586EBB20DC34D600CCAC1A /* Chat */,
+			);
+			path = Aplication;
+			sourceTree = "<group>";
+		};
+		A1586EB220DC1C5900CCAC1A /* ChatbotComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A1586EB520DC308E00CCAC1A /* ChatMessageTableViewCell.swift */,
+				A1586EB720DC317B00CCAC1A /* ChatDataModel.swift */,
+				A17FFB8620DD654D00D5F8A8 /* LoaderTableViewCell.swift */,
+				A17FFB8820DD68F800D5F8A8 /* GenericChatTableViewCell.swift */,
+			);
+			path = ChatbotComponents;
+			sourceTree = "<group>";
+		};
+		A1586EBB20DC34D600CCAC1A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A1586EB920DC347800CCAC1A /* ChatbotViewController.swift */,
+				A1586EB020DC1B5800CCAC1A /* Chatbot.storyboard */,
+				A1586EB220DC1C5900CCAC1A /* ChatbotComponents */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A1586EBC20DC34E900CCAC1A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A1586EAE20DC19B100CCAC1A /* Home.storyboard */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +177,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1586EB120DC1B5800CCAC1A /* Chatbot.storyboard in Resources */,
+				A1586EAF20DC19B100CCAC1A /* Home.storyboard in Resources */,
 				A1586EA520DC194F00CCAC1A /* LaunchScreen.storyboard in Resources */,
 				A1586EA220DC194F00CCAC1A /* Assets.xcassets in Resources */,
-				A1586EA020DC194E00CCAC1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +191,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1586E9D20DC194E00CCAC1A /* ViewController.swift in Sources */,
+				A17FFB8720DD654D00D5F8A8 /* LoaderTableViewCell.swift in Sources */,
+				A1586EB820DC317B00CCAC1A /* ChatDataModel.swift in Sources */,
 				A1586E9B20DC194E00CCAC1A /* AppDelegate.swift in Sources */,
+				A1586EBA20DC347800CCAC1A /* ChatbotViewController.swift in Sources */,
+				A1586EB620DC308E00CCAC1A /* ChatMessageTableViewCell.swift in Sources */,
+				A17FFB8920DD68F800D5F8A8 /* GenericChatTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A1586E9E20DC194E00CCAC1A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1586E9F20DC194E00CCAC1A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A1586EA320DC194F00CCAC1A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
