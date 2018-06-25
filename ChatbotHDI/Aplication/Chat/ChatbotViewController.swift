@@ -25,13 +25,17 @@ class ChatbotViewController: UIViewController {
         ChatDataModel(cellType: .leftBalloon , cellModel:
             ChatCellDataModel(messageText:"Posso eu, mero mortal saber o que aconteceu com o excelentíssimo senhor fulano siclano beutramo marciano da silva?",messageState:.left,buttonOneText:nil,buttonTwoText: nil)),
         ChatDataModel(cellType: .rightBalloon , cellModel:
-            ChatCellDataModel(messageText:"Posso eu, mero mortal saber o que aconteceu",messageState:.right,buttonOneText:nil,buttonTwoText: nil)),
-        ChatDataModel(cellType: .loader , cellModel:nil)]
+            ChatCellDataModel(messageText:nil,messageState:.right,buttonOneText:nil,buttonTwoText: nil))]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // change 2 to desired number of seconds
+            var model = self.chatCells[self.chatCells.count - 1]
+            model.cellModel?.messageText = "Posso eu, mero mortal saber o que aconteceu com o excelentíssimo senhor fulano siclano beutramo marciano da silva?"
+            self.tableView.reloadData()
+        }
     }
 }
 

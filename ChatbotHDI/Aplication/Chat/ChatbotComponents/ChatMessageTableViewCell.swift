@@ -8,28 +8,35 @@
 
 import UIKit
 
-class ChatMessageTableViewCell: GenericChatTableViewCell {
+protocol ChatMessageCellDelegate {
+    func didSetMessage(text: String)
+}
+
+class ChatMessageTableViewCell: LoaderTableViewCell {
     
     @IBOutlet weak var leadingBalloonConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingBalloonConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
-    /* ATENTION
-    The 'imageDeslocation' variable have to be the sum of the image cell widht and the spaces btween image and text.
-    on this case: 40(image widht) + 10(image trailing) + 10 (image leading) + 15(text spaces)
-    If you will change the constrainst remember to update this values:
-    */
-     private var imageDeslocation:CGFloat = 0
+    private var imageDeslocation:CGFloat = 0
     
     private var currentState: BalloonMessageState?
     
     @IBOutlet weak var perfilImage: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        print("You Call me")
+    }
+    
     override func configureCell() {
+        loaderView.alpha = 0
         imageDeslocation = perfilImage.frame.width + leadingBalloonConstraint.constant + trailingBalloonConstraint.constant + 15 //this 15 constant is to make the margins spaces
-        messageLabel.text = cellModel?.messageText
-        if let state = cellModel?.messageState {
+        if let state = cellModel?.messageState, let text = cellModel?.messageText {
+            messageLabel.text = text
             setBalloonState(state)
+        } else {
+            startLoaderAnimation()
         }
     }
     
@@ -50,5 +57,33 @@ class ChatMessageTableViewCell: GenericChatTableViewCell {
             leadingBalloonConstraint.constant = constant
             messageLabel.textColor = .white
         }
+    }
+    
+    override func startLoaderAnimation() {
+        messageView.alpha = 0
+        loaderView.alpha = 1
+        super.startLoaderAnimation()
+    }
+    
+    override func stopLoaderAnimation() {
+        super.stopLoaderAnimation()
+        if let state = cellModel?.messageState {
+            setBalloonState(state)
+            UIView.animate(withDuration: 0.8, delay: 0.2, animations: {
+                self.loaderView.bounds = self.messageView.frame
+            }) { completion in
+                self.messageView.alpha = 1
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.loaderView.alpha = 0
+                }, completion: nil)
+            }
+        }
+    }
+}
+
+extension ChatMessageTableViewCell: ChatMessageCellDelegate {
+    func didSetMessage(text: String) {
+        cellModel?.messageText = text
+        stopLoaderAnimation()
     }
 }
