@@ -8,40 +8,54 @@
 
 import UIKit
 
-protocol ChatMessageCellDelegate {
-    func didSetMessage(text: String)
-}
-
 class ChatMessageTableViewCell: LoaderTableViewCell {
     
     @IBOutlet weak var leadingBalloonConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingBalloonConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageView: UIView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageHeightConstraint: NSLayoutConstraint!
+    
     private var imageDeslocation:CGFloat = 0
+    private var isAlreadyConfigured = false
+    private var isLoading = false
     
     private var currentState: BalloonMessageState?
     
     @IBOutlet weak var perfilImage: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        print("You Call me")
-    }
-    
-    override func configureCell() {
+    override func configureCell(animated:Bool? = false) {
         loaderView.alpha = 0
-        imageDeslocation = perfilImage.frame.width + leadingBalloonConstraint.constant + trailingBalloonConstraint.constant + 15 //this 15 constant is to make the margins spaces
-        if let state = cellModel?.messageState, let text = cellModel?.messageText {
-            messageLabel.text = text
-            setBalloonState(state)
-        } else {
-            startLoaderAnimation()
+        if let state = cellModel?.messageState {
+            configureBalloonState(state, animated)
         }
     }
     
-    func setBalloonState(_ state: BalloonMessageState) {
+    private func configureBalloonState(_ state: BalloonMessageState,_ animated:Bool? = false) {
         currentState = state
+        
+        if isAlreadyConfigured {
+            if isLoading {
+                    stopLoaderAnimation()
+            }
+        } else {
+            if let shouldLoad = cellModel?.shouldLoad, shouldLoad {
+                startLoaderAnimation()
+            } else {
+                messageLabel.numberOfLines = 0
+                messageLabel.text = cellModel?.messageText
+                //this 15 constant is to make the margins spaces
+                imageDeslocation = perfilImage.frame.width + leadingBalloonConstraint.constant + trailingBalloonConstraint.constant + 15
+                let duration:CGFloat
+                UIView.animate(withDuration:0.2) {
+                    self.setCellBalloonState(state)
+                }
+            }
+        }
+        isAlreadyConfigured = true
+    }
+    
+    private func setCellBalloonState(_ state: BalloonMessageState) {
         switch state {
         case .left:
             messageView.backgroundColor = UIColor(displayP3Red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
@@ -62,28 +76,26 @@ class ChatMessageTableViewCell: LoaderTableViewCell {
     override func startLoaderAnimation() {
         messageView.alpha = 0
         loaderView.alpha = 1
+        isLoading = true
         super.startLoaderAnimation()
     }
     
-    override func stopLoaderAnimation() {
-        super.stopLoaderAnimation()
-        if let state = cellModel?.messageState {
-            setBalloonState(state)
-            UIView.animate(withDuration: 0.8, delay: 0.2, animations: {
-                self.loaderView.bounds = self.messageView.frame
-            }) { completion in
-                self.messageView.alpha = 1
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.loaderView.alpha = 0
-                }, completion: nil)
+    override func stopLoaderAnimation(completion: ((_ result:Bool) -> Void)? = nil) {
+        isLoading = false
+        super.stopLoaderAnimation() { finish in
+            if finish {
+                if let state = self.cellModel?.messageState {
+                    self.isAlreadyConfigured = false
+                    self.configureBalloonState(state)
+                    self.layoutIfNeeded()
+                    UIView.animate(withDuration: 0.2, delay: 0.2, animations: {
+                        self.loaderWidthConstraint.constant = self.messageView.frame.width
+                        self.layoutIfNeeded()
+                    }) { _ in
+                        self.delegate?.didChangeHeight()
+                    }
+                }
             }
         }
-    }
-}
-
-extension ChatMessageTableViewCell: ChatMessageCellDelegate {
-    func didSetMessage(text: String) {
-        cellModel?.messageText = text
-        stopLoaderAnimation()
     }
 }

@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol ChatCellDelegate {
+    func didChangeHeight()
+}
+
 class GenericChatTableViewCell: UITableViewCell {
 
     var cellModel:ChatCellDataModel?
     
-    func configureCell() {
+    var delegate:ChatCellDelegate?
+    
+    func configureCell(animated:Bool? = false) {
         //This is to subClass override
     }
 }

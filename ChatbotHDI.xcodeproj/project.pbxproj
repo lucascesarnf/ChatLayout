@@ -17,7 +17,6 @@
 		A1586EBA20DC347800CCAC1A /* ChatbotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1586EB920DC347800CCAC1A /* ChatbotViewController.swift */; };
 		A17FFB8720DD654D00D5F8A8 /* LoaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FFB8620DD654D00D5F8A8 /* LoaderTableViewCell.swift */; };
 		A17FFB8920DD68F800D5F8A8 /* GenericChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FFB8820DD68F800D5F8A8 /* GenericChatTableViewCell.swift */; };
-		A17FFB8B20DD881300D5F8A8 /* ChatLoader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17FFB8A20DD881200D5F8A8 /* ChatLoader.xib */; };
 		A17FFB8E20DD88D500D5F8A8 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17FFB8D20DD88D500D5F8A8 /* LoaderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		A1586EB920DC347800CCAC1A /* ChatbotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotViewController.swift; sourceTree = "<group>"; };
 		A17FFB8620DD654D00D5F8A8 /* LoaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderTableViewCell.swift; sourceTree = "<group>"; };
 		A17FFB8820DD68F800D5F8A8 /* GenericChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericChatTableViewCell.swift; sourceTree = "<group>"; };
-		A17FFB8A20DD881200D5F8A8 /* ChatLoader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatLoader.xib; sourceTree = "<group>"; };
 		A17FFB8D20DD88D500D5F8A8 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +96,6 @@
 		A1586EB220DC1C5900CCAC1A /* ChatbotComponents */ = {
 			isa = PBXGroup;
 			children = (
-				A17FFB8A20DD881200D5F8A8 /* ChatLoader.xib */,
 				A1586EB520DC308E00CCAC1A /* ChatMessageTableViewCell.swift */,
 				A1586EB720DC317B00CCAC1A /* ChatDataModel.swift */,
 				A17FFB8620DD654D00D5F8A8 /* LoaderTableViewCell.swift */,
@@ -195,7 +192,6 @@
 				A1586EAF20DC19B100CCAC1A /* Home.storyboard in Resources */,
 				A1586EA520DC194F00CCAC1A /* LaunchScreen.storyboard in Resources */,
 				A1586EA220DC194F00CCAC1A /* Assets.xcassets in Resources */,
-				A17FFB8B20DD881300D5F8A8 /* ChatLoader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

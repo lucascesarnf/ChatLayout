@@ -1,5 +1,5 @@
 //
-//  LoaderTableViewCell.swift
+//  LoaderView.swift
 //  ChatbotHDI
 //
 //  Created by Lucas César  Nogueira Fonseca on 22/06/2018.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class LoaderTableViewCell: GenericChatTableViewCell {
+class LoaderView: UIView {
     
-    private enum AnimationState:Int {
+    enum AnimationState:Int {
         case one = 1
         case two
         case three
@@ -45,17 +45,10 @@ class LoaderTableViewCell: GenericChatTableViewCell {
     @IBOutlet weak var circleThree: UIView!
     @IBOutlet weak var circleTwo: UIView!
     private var currentState:AnimationState = .one
-    @IBOutlet weak var loaderView: UIView!
     
-    @IBOutlet weak var loaderWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var loaderHegthConstraint: NSLayoutConstraint!
     private var shouldAnimate = true
     private let deslocation:CGFloat = 4
     private let duration = 0.2
-    
-    override func configureCell(animated:Bool? = false) {
-        startLoaderAnimation()
-    }
     
     private func loaderAnimation() {
         if  shouldAnimate {
@@ -97,31 +90,12 @@ class LoaderTableViewCell: GenericChatTableViewCell {
         })
     }
     
-    func startLoaderAnimation() {
+    func startAnimation() {
         shouldAnimate = true
         loaderAnimation()
     }
     
-    func stopLoaderAnimation(completion: ((_ result:Bool) -> Void)? = nil) {
+    func stopAnimation() {
         shouldAnimate = false
-        loaderView.isHidden = false
-        loaderView.alpha = 1
-        hideLoader() { finish in
-            completion?(finish)
-        }
-    }
-    
-    func hideLoader(completion: ((_ result:Bool) -> Void)? = nil) {
-        let alpha:CGFloat = 0
-        UIView.animate(withDuration: 0.5, animations: {
-            self.circleOne.alpha = alpha
-            self.circleTwo.alpha = alpha
-            self.circleThree.alpha = alpha
-        }) { finish in
-            self.circleOne.isHidden = true
-            self.circleTwo.isHidden = true
-            self.circleThree.isHidden = true
-            completion?(finish)
-        }
     }
 }

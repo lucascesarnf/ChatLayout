@@ -34,4 +34,5 @@ struct ChatCellDataModel {
     var messageState: BalloonMessageState?
     var buttonOneText:String?
     var buttonTwoText:String?
+    var shouldLoad:Bool?
 }
